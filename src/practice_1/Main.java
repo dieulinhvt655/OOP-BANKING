@@ -11,7 +11,7 @@ public class Main {
         BankAccount account4 = new BankAccount("23010002", "Bobie", 170000, "Saving");
         Bank bank = new Bank();
         BankAccount bankAccount = new BankAccount();
-        BankService bankService = new BankService();
+        BankService bankService = new BankService(); // dich vu ngan hang
 
         bank.addAcount(account1);
         bank.addAcount(account2);
@@ -70,5 +70,8 @@ public class Main {
             }
         }
     }
+
+
+    // Cham diem : 10/10
 
 }

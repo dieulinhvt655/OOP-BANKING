@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bank {
-    private List<BankAccount> accounts = new ArrayList<BankAccount>();
+    private List<BankAccount> accounts = new ArrayList<>();
+
     final int min = 0;
-    public Bank() {
+    public Bank() { // constructor
     }
 
     public Bank(List<BankAccount> accounts) {
