@@ -12,63 +12,72 @@ public class Main {
         Bank bank = new Bank();
         BankAccount bankAccount = new BankAccount();
         BankService bankService = new BankService();
+        User user_1 = new User("a123", "dlvt_655", "linh@gmail.com", "0865060505");
+        User user_2 = new User();
 
-        bank.addAcount(account1);
-        bank.addAcount(account2);
-        bank.addAcount(account3);
-        bank.addAcount(account4);
-
-        System.out.println("---------------------------");
-        bank.findAccount("2138dha8w");
-        bank.findAccount("23010545");
-
-        System.out.println("---------------------------");
-        bank.removeAccount("23010545");
-
-        System.out.println("---------------------------");
-        bank.displayAccounts();
-
-        double amount = 5000;
-        BankAccount account = bank.findAccount("23010001");
-        BankAccount sourceAccount = bank.findAccount("23010000");
-        BankAccount targetAccount = bank.findAccount("23010002");
-        View view = new View();
-        view.menu();
-
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose an option: ");
-        int choice = scanner.nextInt();
-
-        switch (choice) {
-            //deposit
-            case 1 -> {
-                if (account != null) {
-                    bankService.deposit(account, amount);
-                }
-//                else {
-//                    System.out.println("Account not found!");
+//        bank.addAcount(account1);
+//        bank.addAcount(account2);
+//        bank.addAcount(account3);
+//        bank.addAcount(account4);
+//
+//        System.out.println("---------------------------");
+//        bank.findAccount("2138dha8w");
+//        bank.findAccount("23010545");
+//
+//        System.out.println("---------------------------");
+//        bank.removeAccount("23010545");
+//
+//        System.out.println("---------------------------");
+//        bank.displayAccounts();
+//
+//        double amount = 5000;
+//        BankAccount account = bank.findAccount("23010001");
+//        BankAccount sourceAccount = bank.findAccount("23010000");
+//        BankAccount targetAccount = bank.findAccount("23010002");
+//        View view = new View();
+//        view.menu();
+//
+//
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Choose an option: ");
+//        int choice = scanner.nextInt();
+//
+//        switch (choice) {
+//            //deposit
+//            case 1 -> {
+//                if (account != null) {
+//                    bankService.deposit(account, amount);
 //                }
-            }
-            //withdraw
-            case 2 -> {
-                if (account != null) {
-                    bankService.withdraw(account, amount);
-                }
-            }
-            // transfer
-            case 3 -> {
-                if (account != null) {
-                    bankService.transfer(sourceAccount, targetAccount, amount);
-                }
-            }
-            //check balance
-            case 4 -> {
-                if (account != null) {
-                    bankService.checkBalance(account);
-                }
-            }
-        }
-    }
+////                else {
+////                    System.out.println("Account not found!");
+////                }
+//            }
+//            //withdraw
+//            case 2 -> {
+//                if (account != null) {
+//                    bankService.withdraw(account, amount);
+//                }
+//            }
+//            // transfer
+//            case 3 -> {
+//                if (account != null) {
+//                    bankService.transfer(sourceAccount, targetAccount, amount);
+//                }
+//            }
+//            //check balance
+//            case 4 -> {
+//                if (account != null) {
+//                    bankService.checkBalance(account);
+//                }
+//            }
+//        }
 
+        user_1.addAccount(account1);
+        user_1.addAccount(account2);
+
+        user_1.displayUser();
+        user_1.removeAccount("23010000");
+        user_1.display();
+        user_1.displayUser();
+    }
 }

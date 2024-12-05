@@ -4,7 +4,7 @@ public class BankService {
     private final int minAmount = 0;
     //gui tien vao tai khoan
     public void deposit(BankAccount account, double amount) {
-        account.deposit( amount);
+        account.deposit(amount);
     }
     //rut tien tu tai khoan
     public void withdraw(BankAccount account, double amount) {
@@ -25,8 +25,4 @@ public class BankService {
     public void checkBalance(BankAccount account) {
         System.out.println("Balance is: " + account.checkBalance());
     }
-
-    // TODO: Thêm chuc nang vay tien
-
-
 }
