@@ -1,4 +1,4 @@
-package practice_1;
+package practice_1.model;
 
 public class BankAccount {
     private String accountNumber;
@@ -65,7 +65,7 @@ public class BankAccount {
         if(amount > minAmount && amount <= balance){
             balance = balance - amount;
             System.out.println("Withdraw successful! new balance is: " + balance);
-            
+
         }
         else {
             System.out.println("Withdraw invalid!");

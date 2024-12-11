@@ -1,4 +1,6 @@
-package practice_1;
+package practice_1.temp_store;
+
+import practice_1.model.BankAccount;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class Bank {
         System.out.println("Account not found!");
         return null;
     }
+
     //xoa tai khoan
     public void removeAccount(String accountNumber) {
         BankAccount account = findAccount(accountNumber);
@@ -50,6 +53,7 @@ public class Bank {
             System.out.println("Account removed: " + account);
         }
     }
+
     // hien thi thong tin tat ca cac tai khoan
     public void displayAccounts() {
         if (accounts.size() > min) {

@@ -1,19 +1,22 @@
 package practice_1;
 
-import java.util.Scanner;
+import practice_1.model.BankAccount;
+import practice_1.model.User;
+import practice_1.service.BankService;
+import practice_1.temp_store.Bank;
 
 public class Main {
 
     public static void main(String[] args) {
-        BankAccount account1 = new BankAccount("23010545", "Oggy", 20000, "Saving");
-        BankAccount account2 = new BankAccount("23010000", "Olavie", 19999, "Saving");
-        BankAccount account3 = new BankAccount("23010001", "Jackie", 18000, "Saving");
-        BankAccount account4 = new BankAccount("23010002", "Bobie", 170000, "Saving");
-        Bank bank = new Bank();
-        BankAccount bankAccount = new BankAccount();
-        BankService bankService = new BankService();
-        User user_1 = new User("a123", "dlvt_655", "linh@gmail.com", "0865060505");
-        User user_2 = new User();
+//        BankAccount account1 = new BankAccount("23010545", "Oggy", 20000, "Saving");
+//        BankAccount account2 = new BankAccount("23010000", "Olavie", 19999, "Saving");
+//        BankAccount account3 = new BankAccount("23010001", "Jackie", 18000, "Saving");
+//        BankAccount account4 = new BankAccount("23010002", "Bobie", 170000, "Saving");
+//        Bank bank = new Bank();
+//        BankAccount bankAccount = new BankAccount();
+//        BankService bankService = new BankService();
+//        User user_1 = new User("a123", "dlvt_655", "linh@gmail.com", "0865060505");
+//        User user_2 = new User();
 
 //        bank.addAcount(account1);
 //        bank.addAcount(account2);
@@ -72,12 +75,7 @@ public class Main {
 //            }
 //        }
 
-        user_1.addAccount(account1);
-        user_1.addAccount(account2);
 
-        user_1.displayUser();
-        user_1.removeAccount("23010000");
-        user_1.display();
-        user_1.displayUser();
+
     }
 }
