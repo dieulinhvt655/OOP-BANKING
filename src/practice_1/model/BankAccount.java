@@ -50,38 +50,38 @@ public class BankAccount {
 
     private final int minAmount = 0;
 
-    //gui tien vao tai khoan
-    public void deposit(double amount) {
-        if(amount > minAmount){
-            balance += amount;
-            System.out.println("Deposit successful! New baclance is " + balance);
-        }
-        else {
-            System.out.println("Deposit invalid!");
-        }
-    }
-    //rut tien tu tai khoan
-    public void withdraw(double amount) {
-        if(amount > minAmount && amount <= balance){
-            balance = balance - amount;
-            System.out.println("Withdraw successful! new balance is: " + balance);
-
-        }
-        else {
-            System.out.println("Withdraw invalid!");
-        }
-    }
-    //tra ve so du hien tai
-    public double checkBalance (){
-        return balance;
-    }
-    // hien thi thong tin tai khoan
-    public void getAccountInfo(){
-        System.out.println("Account Number     : " + accountNumber);
-        System.out.println("Account Holder Name: " + accountHolderName);
-        System.out.println("Account Type       : " + accountType);
-        System.out.println("Balance            : " + balance);
-    }
+//    //gui tien vao tai khoan
+//    public void deposit(double amount) {
+//        if(amount > minAmount){
+//            balance += amount;
+//            System.out.println("Deposit successful! New baclance is " + balance);
+//        }
+//        else {
+//            System.out.println("Deposit invalid!");
+//        }
+//    }
+//    //rut tien tu tai khoan
+//    public void withdraw(double amount) {
+//        if(amount > minAmount && amount <= balance){
+//            balance = balance - amount;
+//            System.out.println("Withdraw successful! new balance is: " + balance);
+//
+//        }
+//        else {
+//            System.out.println("Withdraw invalid!");
+//        }
+//    }
+//    //tra ve so du hien tai
+//    public double checkBalance (){
+//        return balance;
+//    }
+//    // hien thi thong tin tai khoan
+//    public void getAccountInfo(){
+//        System.out.println("Account Number     : " + accountNumber);
+//        System.out.println("Account Holder Name: " + accountHolderName);
+//        System.out.println("Account Type       : " + accountType);
+//        System.out.println("Balance            : " + balance);
+//    }
 
     @Override
     public String toString() {

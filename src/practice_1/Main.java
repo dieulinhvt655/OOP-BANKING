@@ -1,11 +1,13 @@
 package practice_1;
 
+import data.Context;
 import practice_1.model.BankAccount;
 import practice_1.model.User;
 import practice_1.service.BankService;
 import practice_1.temp_store.Bank;
 
 public class Main {
+
 
     public static void main(String[] args) {
 //        BankAccount account1 = new BankAccount("23010545", "Oggy", 20000, "Saving");
@@ -75,7 +77,12 @@ public class Main {
 //            }
 //        }
 
+        Context context = new Context();
+        BankService bankService = new BankService(context);
 
+        BankAccount bankAccount = bankService.enterInforBankAccount();
+
+        bankService.addBankAccount(bankAccount);
 
     }
 }
