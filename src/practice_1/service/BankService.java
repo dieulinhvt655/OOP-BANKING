@@ -16,7 +16,6 @@ public class BankService {
         this.context = context;
     }
 
-    // initial default balance is 0
     private final double iniDefBalance = 0.0;
     private final int minAmount = 0;
 
@@ -25,16 +24,14 @@ public class BankService {
     public BankAccount enterInforBankAccount(){
         String accountNumber = Input.enterAString("Enter your account number: ");
         String accountHolderName = Input.enterAString("Enter your account holder name: ");
-//        Double balance = Input.enterANumber("Enter your balance: ");
         String accountType = Input.enterAString("Enter your account type: ");
-        BankAccount account =  new BankAccount(accountNumber, accountHolderName, iniDefBalance, accountType);
-        addBankAccount(account); // sau khi tạo 1 tài khoản mới, dữ liệu sẽ tự động lưu vào file
-        return account;
+        BankAccount acc = new BankAccount(accountNumber, accountHolderName, iniDefBalance, accountType);
+        addBankAccount(acc);
+        return acc;
     }
     public void addBankAccount(BankAccount bankAccount){  // add a new bank account
         context.getBankAccounts().add(bankAccount);
         context.saveChange();
-        System.out.println("Bank account added");
     }
 
     //remove a bank account
@@ -65,7 +62,6 @@ public class BankService {
         if(bankAccountToRemove != null){
             context.getBankAccounts().remove(bankAccountToRemove);
             context.saveChange();
-            System.out.println("Bank account removed");
         }
         else {
             System.out.println("Bank account not found");
