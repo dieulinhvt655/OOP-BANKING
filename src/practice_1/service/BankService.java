@@ -27,7 +27,7 @@ public class BankService {
         String accountHolderName = Input.enterAString("Enter your account holder name: ");
 //        Double balance = Input.enterANumber("Enter your balance: ");
         String accountType = Input.enterAString("Enter your account type: ");
-        BankAccount account =  new BankAccount(accountNumber, accountHolderName, 0, accountType);
+        BankAccount account =  new BankAccount(accountNumber, accountHolderName, iniDefBalance, accountType);
         addBankAccount(account); // sau khi tạo 1 tài khoản mới, dữ liệu sẽ tự động lưu vào file
         return account;
     }
