@@ -3,7 +3,7 @@ package practice_1.view;
 import practice_1.view.component.Input;
 
 public class UpdateView {
-    public int updateBankView(){
+    public void updateBankView(){
         System.out.println("----------------------------------");
         System.out.println("Menu updateBankView");
         System.out.println("----------------------------------");
@@ -11,6 +11,6 @@ public class UpdateView {
         System.out.println("2. Update Account Type");
         System.out.println("3. Exit");
         System.out.println("----------------------------------");
-        return Input.enterNumber("Choose an option", "Invalid value", 1, 3);
+//        return Input.enterNumber("Choose an option", "Invalid value", 1, 3);
     }
 }

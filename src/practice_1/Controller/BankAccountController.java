@@ -7,8 +7,6 @@ import practice_1.view.View;
 import practice_1.view.component.BaseView;
 import practice_1.view.component.Input;
 
-import javax.security.auth.login.AccountNotFoundException;
-
 public class BankAccountController {
 
     BankView bankView;
@@ -24,21 +22,28 @@ public class BankAccountController {
     public void add(){
         bV.baseView();
         BankAccount account = bankService.enterInforBankAccount();
-        System.out.println("Bank account added");
         bV.baseView();
     }
 
     public void remove(){
         bV.baseView();
         String input = Input.enterAString("Enter account number");
-//        try {
-//            bankService.removeBankAccount(input);
-//            System.out.println("Bank account removed");
-//        } catch (AccountNotFoundException e) {
-//
-//        }
-
+        bankService.removeBankAccount(input);
         bV.baseView();
     }
+
+    public void update(){
+        bV.baseView();
+        String accountNumber = Input.enterAString("Enter account number you want to update");
+        bankService.updateBankAccount(accountNumber);
+        bV.baseView();
+    }
+
+    public void deposit(){
+        bV.baseView();
+
+    }
+
+
 
 }

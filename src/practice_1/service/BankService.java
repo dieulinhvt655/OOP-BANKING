@@ -27,6 +27,7 @@ public class BankService {
         String accountType = Input.enterAString("Enter your account type: ");
         BankAccount acc = new BankAccount(accountNumber, accountHolderName, iniDefBalance, accountType);
         addBankAccount(acc);
+        System.out.println("Bank account added");
         return acc;
     }
     public void addBankAccount(BankAccount bankAccount){  // add a new bank account
@@ -62,6 +63,7 @@ public class BankService {
         if(bankAccountToRemove != null){
             context.getBankAccounts().remove(bankAccountToRemove);
             context.saveChange();
+            System.out.println("Bank account removed");
         }
         else {
             System.out.println("Bank account not found");
@@ -80,6 +82,22 @@ public class BankService {
         if(bankAccountToUpdate != null){
             UpdateView updateView = new UpdateView();
             updateView.updateBankView();
+
+            int option = Input.enterNumber("Choose an option", "Invalid value", 1, 3);
+            switch (option){
+                case 1:
+                    String newAccountHolderName = Input.enterAString("Enter new account holder name: ");
+                    updateAccountHolderName(bankAccountToUpdate, newAccountHolderName);
+                    System.out.println("Update successful.");
+                    break;
+                case 2:
+                    String newAccountType = Input.enterAString("Enter new account type: ");
+                    updateAccountType(bankAccountToUpdate, newAccountType);
+                    System.out.println("Update successful.");
+                    break;
+                case 3:
+                    System.out.println("program exited");
+            }
         }
         else {
             System.out.println("Bank account not found");
