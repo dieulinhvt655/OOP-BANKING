@@ -17,8 +17,6 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-//        this.accounts = accounts;
-//        this.bank = bank;
     }
 
     public String getUserID() {

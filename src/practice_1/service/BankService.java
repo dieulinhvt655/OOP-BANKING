@@ -2,10 +2,11 @@ package practice_1.service;
 
 import data.Context;
 import practice_1.model.BankAccount;
+import practice_1.service.service_interface.BankInterface;
 import practice_1.view.UpdateView;
 import practice_1.view.component.Input;
 
-public class BankService {
+public class BankService implements BankInterface {
 
     Context context = new Context();
 
@@ -13,10 +14,14 @@ public class BankService {
         this.context = context;
     }
 
-    private final double iniDefBalance = 0.0;
+
+
+    // services
+    private double iniDefBalance = 0.0;
     private final int minAmount = 0;
 
     // thêm 1 tài khoản mới
+    @Override
     public BankAccount enterInforBankAccount(){
         String accountNumber = Input.enterAString("Enter your account number: ");
         String accountHolderName = Input.enterAString("Enter your account holder name: ");
@@ -31,12 +36,14 @@ public class BankService {
         System.out.println("Bank account added");
         return acc;
     }
+
     public void addBankAccount(BankAccount bankAccount){  // add a new bank account
         context.getBankAccounts().add(bankAccount);
         context.saveChange();
     }
 
     //remove a bank account
+    @Override
     public void removeBankAccount (String accountNumber){
         // remove a bank account
 //        String accountNumber = Input.enterAString("Enter your account number: ");
@@ -65,6 +72,7 @@ public class BankService {
     }
 
     // accountNumber is PK, can't change
+    @Override
     public void updateBankAccount(String accountNumbner){
         BankAccount bankAccountToUpdate = findBankAccount(accountNumbner);
         if(bankAccountToUpdate != null){
@@ -116,6 +124,7 @@ public class BankService {
         return account;
     }
 
+    @Override
     public void deposit(String accountNumber, Double amount) {
         BankAccount account = findBankAccount(accountNumber);
         if (account != null) {
@@ -132,6 +141,7 @@ public class BankService {
         }
     }
 
+    @Override
     public void withdraw(String accountNumber, double amount){
 //        boolean account = hasBankAccount(bankAccount.getAccountNumber());
         BankAccount account = findBankAccount(accountNumber);
@@ -152,6 +162,7 @@ public class BankService {
         }
     }
 
+    @Override
     public void transfer(String fromBankAccountNumber, String toBankAccountNumber, double amount){
 
         BankAccount fromBankAccount = findBankAccount(fromBankAccountNumber);
@@ -175,6 +186,7 @@ public class BankService {
         }
     }
 
+    @Override
     public void checkBalance(String accountNumber){
         BankAccount account = findBankAccount(accountNumber);
         if(account != null){

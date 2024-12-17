@@ -2,14 +2,15 @@ package practice_1.Controller;
 
 import practice_1.model.BankAccount;
 import practice_1.service.BankService;
+import practice_1.service.service_interface.BankInterface;
 import practice_1.view.BankView;
 import practice_1.view.component.BaseView;
 import practice_1.view.component.Input;
 
 public class BankAccountController {
 
-    BankView bankView;
-    BankService bankService;
+    private BankView bankView;
+    private BankInterface bankService;
 
     BaseView bV = new BaseView();
 
