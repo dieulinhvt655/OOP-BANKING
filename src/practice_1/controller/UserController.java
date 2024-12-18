@@ -1,4 +1,4 @@
-package practice_1.Controller;
+package practice_1.controller;
 
 import practice_1.service.service_interface.UserInterface;
 import practice_1.view.UserView;

@@ -1,4 +1,4 @@
-package practice_1.Controller;
+package practice_1.controller;
 
 import practice_1.model.BankAccount;
 import practice_1.service.BankService;
