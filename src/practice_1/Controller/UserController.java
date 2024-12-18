@@ -3,6 +3,7 @@ package practice_1.Controller;
 import practice_1.service.service_interface.UserInterface;
 import practice_1.view.UserView;
 import practice_1.view.component.BaseView;
+import practice_1.view.component.Input;
 
 public class UserController {
 
@@ -20,5 +21,20 @@ public class UserController {
         baseView.baseView();
         userService.createUser();
     }
+
+    public void updateUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.updateUser(userID);
+    }
+
+    public void removeUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.removeUser(userID);
+    }
+
+
+
 
 }

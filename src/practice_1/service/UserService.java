@@ -91,6 +91,7 @@ public class UserService implements UserInterface {
     }
 
     //update
+    @Override
     public void updateUser(String userID){
         User userToUpdate = findUser(userID);
         if(userToUpdate != null){
@@ -121,11 +122,24 @@ public class UserService implements UserInterface {
         }
     }
 
-
-
     //remove
+    @Override
+    public void removeUser(String userID){
+        User userIDToRemove = findUser(userID);
+        if(userIDToRemove != null){
+            context.getUsers().remove(userIDToRemove);
+            context.saveChange();
+            System.out.println("User " + userIDToRemove.getUserID() + " has been removed");
+        }
+        else {
+            System.out.println("User not found");
+        }
+    }
 
     //add bank account to user account
+    public void addBankAccountToUser(){
+
+    }
     //remove bank account from user account
 
     //display user bank account infor

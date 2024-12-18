@@ -4,4 +4,9 @@ public interface UserInterface {
 
     void createUser();
 
+    void updateUser(String userID);
+
+    void removeUser(String userID);
+
+
 }
