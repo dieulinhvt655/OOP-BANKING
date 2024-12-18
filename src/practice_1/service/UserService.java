@@ -137,12 +137,87 @@ public class UserService implements UserInterface {
     }
 
     //add bank account to user account
-    public void addBankAccountToUser(){
+    @Override
+    public void addBankAccountToUser(String userID){
+
+        User user = userExisted(userID);
+        if(user == null){
+            System.out.println("User not found");
+            return;
+        }
+
+        String accountNumber = user.getUserID();
+        String accountName = user.getUserName();
+        Double balance = 0.0;
+        String accountType = Input.enterAString("Enter bank account type: ");
+        BankAccount bankAccount = new BankAccount(accountNumber, accountName, balance, accountType);
+
+        user.getAccounts().add(bankAccount);
+        context.saveChange();
+        System.out.println("Bank account for user " + user.getUserID() + " has been added");
 
     }
-    //remove bank account from user account
+
+    @Override
+    public void removeBankAccountFromUser(String userID) {
+        User user = userExisted(userID);
+        if (user == null) {
+            System.out.println("User not found.");
+            return;
+        }
+
+        String accountNumber = Input.enterAString("Enter the bank account number to remove: ");
+
+        BankAccount accountToRemove = null;
+        for (BankAccount bankAccount : user.getAccounts()) {
+            if (bankAccount.getAccountNumber().equals(accountNumber)) {
+                accountToRemove = bankAccount;
+                break;
+            }
+        }
+
+        if (accountToRemove != null) {
+            user.getAccounts().remove(accountToRemove);
+            context.saveChange();
+            System.out.println("Bank account " + accountNumber + " has been removed for user " + user.getUserID() + ".");
+        } else {
+            System.out.println("Bank account " + accountNumber + " not found for user " + user.getUserID() + ".");
+        }
+    }
 
     //display user bank account infor
+    @Override
+    public void displayAllBankAccounts(String userId){
+        User user = userExisted(userId);
+        if(user == null){
+            System.out.println("User not found");
+            return;
+        }
+
+        System.out.println("Bank account for user " + user.getUserID());
+        if(user.getAccounts().isEmpty()){
+            System.out.println("No bank accounts found for user " + user.getUserID());
+        }
+        else {
+            for (BankAccount bankAccount : user.getAccounts()) {
+                System.out.println(bankAccount);
+            }
+        }
+    }
+
     //display user infor
+    @Override
+    public void displayUser(String userId){
+        User user = userExisted(userId);
+        if(user == null){
+            System.out.println("User not found");
+            return;
+        }
+
+        System.out.println("Information about user " + user.getUserID());
+        System.out.println("Name: " + user.getUserName());
+        System.out.println("Email: " + user.getEmail());
+        System.out.println("PhoneNumber: " + user.getPhoneNumber());
+    }
 
 }

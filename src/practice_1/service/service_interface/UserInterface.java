@@ -8,5 +8,11 @@ public interface UserInterface {
 
     void removeUser(String userID);
 
+    void addBankAccountToUser(String userID);
 
+    void removeBankAccountFromUser(String userID);
+
+    void displayAllBankAccounts(String userId);
+
+    void displayUser(String userId);
 }

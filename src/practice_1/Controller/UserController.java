@@ -34,7 +34,27 @@ public class UserController {
         userService.removeUser(userID);
     }
 
+    public void addBankAccountToUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.addBankAccountToUser(userID);
+    }
 
+    public void removeBankAccountFromUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.removeBankAccountFromUser(userID);
+    }
 
+    public void displayAllBankAccountsOfUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.displayAllBankAccounts(userID);
+    }
 
+    public void displayUser(){
+        baseView.baseView();
+        String userID = Input.enterAString("Enter user ID");
+        userService.displayUser(userID);
+    }
 }
