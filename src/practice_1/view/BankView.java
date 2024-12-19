@@ -13,9 +13,9 @@ public class BankView {
         System.out.println("3. Update bank account");
         System.out.println("4. Bank service");
         System.out.println("5. Exit");
-        System.out.println("6. Back");
+//        System.out.println("6. Back");
         System.out.println("----------------------");
-        return Input.enterNumber("Choose an option", "Invalid value", 1, 6);
+        return Input.enterNumber("Choose an option", "Invalid value", 1, 5);
     }
 
     public int menuBankService(){
