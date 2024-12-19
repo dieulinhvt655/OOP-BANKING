@@ -13,6 +13,7 @@ public class UserView {
         System.out.println("3. Update user");
         System.out.println("4. User service");
         System.out.println("5. Exit");
+        System.out.println("6. Back");
         System.out.println("----------------------");
         return Input.enterNumber("Choose an option", "Invalid value", 1, 5);
     }
@@ -26,6 +27,7 @@ public class UserView {
         System.out.println("3. Show all accounts");
         System.out.println("4. Display user information ");
         System.out.println("5. Exit");
+        System.out.println("6. Back");
         System.out.println("----------------------");
         return Input.enterNumber("Choose an option", "Invalid value", 1, 5);
     }

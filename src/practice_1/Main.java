@@ -5,17 +5,12 @@ import jdk.javadoc.doclet.Doclet;
 import practice_1.controller.BankAccountController;
 import practice_1.controller.UserController;
 //import practice_1.option.BankAccount;
-import practice_1.model.BankAccount;
-import practice_1.model.User;
 import practice_1.option.Option;
 import practice_1.service.BankService;
 import practice_1.service.UserService;
 import practice_1.view.BankView;
 import practice_1.view.UserView;
 import practice_1.view.View;
-
-import java.util.List;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -57,60 +52,87 @@ public class Main {
                             }
                             case Option.BankAccount.BANK_SERVICE:{
                                 int bank_service_option = 0;
-
-                                break;
+                                do {
+                                    bank_service_option = bankView.menuBankService();
+                                    switch (bank_service_option){
+                                        case Option.BankService.DEPOSIT: {
+                                            bankAccountController.deposit();
+                                            break;
+                                        }
+                                        case Option.BankService.WITHDRAW: {
+                                            bankAccountController.withdraw();
+                                            break;
+                                        }
+                                        case Option.BankService.TRANSFER: {
+                                            bankAccountController.transfer();
+                                            break;
+                                        }
+                                        case Option.BankService.CHECK_BALANCE: {
+                                            bankAccountController.checkBalance();
+                                            break;
+                                        }
+                                        case Option.BankService.EXIT: {
+                                            bank_account_option = bankView.menuBank();
+                                        }
+                                    }
+                                }while (bank_service_option != Option.BankService.BACK);
+                            }
+                            case Option.BankAccount.EXIT_BANKACCOUNT:{
+                                option = view.menu();
                             }
                         }
-
                     }while (bank_account_option != Option.BankAccount.BACK);
-
-                // test case user
-                case Option.USER:
+                case Option.USER: {
                     int user_option = 0;
                     do {
                         user_option = userView.menuUser();
                         switch (user_option){
-                            case Option.User.ADD -> {
-                                User user = getUser();
-
-                                userService.addUser(user);
+                            case Option.User.ADD: {
+                                userController.createUser();
                                 break;
                             }
-                            case Option.User.REMOVE -> {
-
-                                // test find user thay vi remove
-                                System.out.println("id :");
-                                Scanner scanner = new Scanner(System.in);
-
-                                System.out.println(
-                                        userService.findUser(scanner.nextLine())
-                                );
-
+                            case Option.User.REMOVE: {
+                                userController.removeUser();
                                 break;
                             }
-                        } 
-                    } while (user_option != Option.BankAccount.BACK);
+                            case Option.User.UPDATE: {
+                                userController.updateUser();
+                                break;
+                            }
+                            case Option.User.USER_SERVICE: {
+                                int user_service_option = 0;
+                                do {
+                                    user_service_option = userView.menuUserService();
+                                    switch (user_service_option){
+                                        case Option.USERSERVICE.ADD: {
+                                            userController.addBankAccountToUser();
+                                            break;
+                                        }
+                                        case Option.USERSERVICE.REMOVE: {
+                                            userController.removeBankAccountFromUser();
+                                            break;
+                                        }
+                                        case Option.USERSERVICE.SHOW_ACCOUNTS: {
+                                            userController.displayAllBankAccountsOfUser();
+                                            break;
+                                        }
+                                        case Option.USERSERVICE.DISPLAY_USER_INFO: {
+                                            userController.displayUser();
+                                            break;
+                                        }
+                                        case Option.USERSERVICE.EXIT: {
+                                            user_option = userView.menuUser();
+                                        }
+                                    }
+                                }while (user_service_option != Option.USERSERVICE.BACK_USER_SERVICE);
+                            }
+                            case Option.User.EXIT: {
+                                option = view.menu();
+                            }
+                        }
+                    }while (user_option != Option.User.BACK_USER);
+                }
             }
-
         }while (option != Option.EXIT);
-    }
-
-    private static User getUser() {
-        User user = new User();
-        Scanner scanner = new Scanner(System.in);
-        user.setUserID(scanner.nextLine());
-        user.setUserName(scanner.nextLine());
-        user.setEmail(scanner.nextLine());
-        user.setPhoneNumber(scanner.nextLine());
-
-        BankAccount newBankAccount = new BankAccount(
-                user.getPhoneNumber(), user.getUserName(), 0.0, "Saving"
-        );
-
-        List<BankAccount> userAccounts = user.getAccounts();
-        userAccounts.add(newBankAccount);
-
-        user.setAccounts(userAccounts);
-        return user;
     }
 }
