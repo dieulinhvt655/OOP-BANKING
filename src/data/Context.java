@@ -13,20 +13,33 @@ public class Context implements Serializable {
     private ArrayList<User> users = new ArrayList<>();
 
     public Context() {
-        try{
-            FileInputStream fileIn = new FileInputStream("storage/db.bin");
-            ObjectInputStream objectInputStream = new ObjectInputStream(fileIn);
+        File storageFile = new File("storage/db.bin");
+        if (!storageFile.exists()) {
+            System.out.println("Database file not found. Initializing new context.");
+            return;
+        }
+
+        try (FileInputStream fileIn = new FileInputStream(storageFile);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileIn)) {
             Context context = (Context) objectInputStream.readObject();
             this.bankAccounts = context.bankAccounts;
             this.users = context.users;
-            objectInputStream.close();
-            fileIn.close();
             System.out.println("Load database success.");
-        }catch (EOFException exception){
-            System.out.println("Database is empty.");
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Error loading data.");
+
+        } catch (EOFException e) {
+            System.out.println("Database is empty. Initializing new context.");
+            this.bankAccounts = new ArrayList<>();
+            this.users = new ArrayList<>();
+        } catch (WriteAbortedException e) {
+            System.out.println("Corrupted database file. Creating new context.");
             e.printStackTrace();
+            this.bankAccounts = new ArrayList<>();
+            this.users = new ArrayList<>();
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Error loading data. Initializing new context.");
+            e.printStackTrace();
+            this.bankAccounts = new ArrayList<>();
+            this.users = new ArrayList<>();
         }
     }
 

@@ -1,8 +1,10 @@
 package practice_1.model;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 public class BankAccount implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private String accountNumber;
@@ -13,8 +15,8 @@ public class BankAccount implements Serializable {
     public BankAccount() {
     }
 
-    public BankAccount(String acoountNumber, String accountHolderName, double balance, String accountType) {
-        this.accountNumber = acoountNumber;
+    public BankAccount(String accountNumber, String accountHolderName, double balance, String accountType) {
+        this.accountNumber = accountNumber;
         this.accountHolderName = accountHolderName;
         this.balance = balance;
         this.accountType = accountType;
@@ -24,7 +26,7 @@ public class BankAccount implements Serializable {
         return accountNumber;
     }
 
-    public void setAcocuntNumber(String accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
