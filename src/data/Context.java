@@ -26,6 +26,7 @@ public class Context implements Serializable {
             System.out.println("Database is empty.");
         } catch (IOException | ClassNotFoundException e) {
             System.out.println("Error loading data.");
+            e.printStackTrace();
         }
     }
 

@@ -1,6 +1,10 @@
 package practice_1.model;
 
-public class BankAccount {
+import java.io.Serializable;
+
+public class BankAccount implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String accountNumber;
     private String accountHolderName;
     private double balance;
@@ -20,8 +24,8 @@ public class BankAccount {
         return accountNumber;
     }
 
-    public void setAcoountNumber(String acoountNumber) {
-        this.accountNumber = acoountNumber;
+    public void setAcocuntNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public String getAccountHolderName() {
